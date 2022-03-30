@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mariadb://localhost:3306/met?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: root #secuwowmail
-    password: secuwow #Secuwow1@!
+    password: 1111 #Secuwow1@!
     driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
