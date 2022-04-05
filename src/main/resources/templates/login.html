@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Secuwow Login</title>
+    <link href="/css/login.css" rel="stylesheet"/>
 </head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <body>
-
+    <h1 id="h1">악성메일 모의훈련</h1>
+<form id="slick-login" action="/login" method="post">
+    <label>userid</label>
+    <input type="text" name="userid" class="placeholder" placeholder="아이디">
+    <label>password</label>
+    <input type="password" name="password" class="placeholder" placeholder="비밀번호">
+    <input type="submit" value="Log In">
+    <a class="a_teg" href="#" id="alertStart">문의하기</a>
+</form>
 </body>
+<script>
+    $().ready(function () {
+          $("#alertStart").click(function () {
+                Swal.fire({
+                    title: '문의하기',
+                    text: 'E-mail : bhpark@secuwow.com',
+                });
+            });
+        });
+</script>
 </html>
