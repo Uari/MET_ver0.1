@@ -24,8 +24,9 @@ public class LoginController {
         return "login";
     }
     @PostMapping("/login")
-    public String login(UserVO userVO){
-
+    public String login(HttpServletRequest request ,UserVO userVO){
+        String userid = request.getParameter("userid");
+        System.out.println("userid = " + userid);
         return "redirect:/main";
     }
 }
