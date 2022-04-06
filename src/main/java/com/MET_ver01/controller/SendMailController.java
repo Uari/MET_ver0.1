@@ -1,4 +1,4 @@
-package MET.MET_ver01.controller;
+package com.MET_ver01.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

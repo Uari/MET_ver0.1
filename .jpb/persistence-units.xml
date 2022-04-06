@@ -4,7 +4,7 @@
     <persistence-units>
       <persistence-unit name="Default">
         <packages>
-          <package value="MET.MET_ver01" />
+          <package value="com.MET_ver01" />
           <package value="" />
         </packages>
       </persistence-unit>

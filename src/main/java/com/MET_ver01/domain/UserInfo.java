@@ -1,4 +1,4 @@
-package MET.MET_ver01.domain;
+package com.MET_ver01.domain;
 
 import lombok.Getter;
 

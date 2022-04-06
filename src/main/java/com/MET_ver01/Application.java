@@ -1,4 +1,4 @@
-package MET.MET_ver01;
+package com.MET_ver01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

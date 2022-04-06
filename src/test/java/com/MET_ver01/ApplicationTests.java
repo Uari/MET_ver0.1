@@ -1,4 +1,4 @@
-package MET.MET_ver01;
+package com.MET_ver01;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

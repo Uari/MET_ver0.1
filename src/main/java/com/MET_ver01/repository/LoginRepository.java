@@ -1,4 +1,4 @@
-package MET.MET_ver01.repository;
+package com.MET_ver01.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

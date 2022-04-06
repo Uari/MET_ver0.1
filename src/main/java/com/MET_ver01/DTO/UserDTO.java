@@ -1,4 +1,4 @@
-package MET.MET_ver01.VO;
+package com.MET_ver01.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,8 +6,8 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-public class UserVO {
-    private String  user_Id;
-    private String  user_Pw;
+public class UserDTO {
+    private String  userId;
+    private String  userPw;
     private LocalDateTime createDateTime;
 }
