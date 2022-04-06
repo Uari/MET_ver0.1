@@ -22,7 +22,7 @@ public class LoginController {
     }
     @PostMapping("/login")
     public String login(HttpServletRequest request, UserDTO userVO){
-
+        System.out.println("userVO = " + userVO.getUserId());
         return "redirect:/main";
     }
 }

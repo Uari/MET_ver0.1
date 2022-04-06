@@ -1,27 +1,71 @@
 package com.MET_ver01.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
+import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 public class UserInfo {
 
-    @Id @GeneratedValue
-    @Column(name = "loginIndex")
-    private Long loginIndex;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Long userId;
 
-    @NotEmpty
-    @Column(name = "user_login_id", nullable = false, unique = true)
-    private String  loginId;
+    @NotNull
+    @Column(name = "user_name")
+    private String userName;
 
-    @NotEmpty
-    @Column(name = "user_login_passwd", nullable = false)
-    private String  loginPw;
+    @NotNull
+    @Column(name = "user_addr")
+    private String userAddr;
 
+    @ManyToOne
+    //@JsonBackReference
+    @JoinColumn(name = "team_id")
+    private TeamInfo teamInfo;
+
+    @OneToOne
+    //@JsonManagedReference
+    @JoinColumn(name = "login_index")
+    private LoginInfo loginInfo;
+
+    @OneToOne
+    @JoinColumn(name = "smtp_index")
+    private SmtpInfo smtpInfo;
+
+    @OneToMany(mappedBy = "userInfo")
+    //@JsonManagedReference
+    private List<TrainingInfo> trainingInfo = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userInfo")
+    //@JsonManagedReference
+    private List<TrainingUserInfo> trainingUserInfo = new ArrayList<>();
+
+    @NotNull
+    @Column(name = "create_user")
+    private String          createUser;
+
+    @NotNull
+    @CreatedDate
+    @Column(name = "create_date_time")
+    private LocalDateTime   createDateTime;
+
+    @NotNull
+    @Column(name = "user_grant")
+    private int             userGrant;
+
+    @NotNull
+    @LastModifiedDate
+    @Column(name = "last_update_time")
+    private LocalDateTime   last_update_time;
 }
