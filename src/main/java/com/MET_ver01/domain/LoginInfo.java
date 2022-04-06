@@ -1,8 +1,6 @@
 package com.MET_ver01.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter @Setter
+@Getter
 public class LoginInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +37,7 @@ public class LoginInfo {
     private LocalDateTime createDateTime;
 
     @OneToOne(mappedBy = "loginInfo")
-    @JsonBackReference
+    //@JsonBackReference
     private UserInfo userInfo;
 
 }

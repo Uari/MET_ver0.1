@@ -1,9 +1,6 @@
 package com.MET_ver01.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
-import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
@@ -12,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
 public class DepInfo {
 
     @Id
@@ -33,7 +30,7 @@ public class DepInfo {
     private LocalDateTime createDateTime;
 
     @OneToMany(mappedBy = "depInfo")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<TeamInfo> teamInfo = new ArrayList<>();
 
     //@JsonBackReference

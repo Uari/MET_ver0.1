@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
 public class TeamInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

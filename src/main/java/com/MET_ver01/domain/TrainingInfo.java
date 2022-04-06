@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
 public class TrainingInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

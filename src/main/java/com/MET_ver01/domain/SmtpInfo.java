@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter @Setter
+@Getter
 public class SmtpInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

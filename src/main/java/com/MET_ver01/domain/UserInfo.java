@@ -1,9 +1,6 @@
 package com.MET_ver01.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
-import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -53,19 +50,19 @@ public class UserInfo {
 
     @NotNull
     @Column(name = "create_user")
-    private String          createUser;
+    private String createUser;
 
     @NotNull
     @CreatedDate
     @Column(name = "create_date_time")
-    private LocalDateTime   createDateTime;
+    private LocalDateTime createDateTime;
 
     @NotNull
     @Column(name = "user_grant")
-    private int             userGrant;
+    private int userGrant;
 
     @NotNull
     @LastModifiedDate
     @Column(name = "last_update_time")
-    private LocalDateTime   last_update_time;
+    private LocalDateTime last_update_time;
 }
