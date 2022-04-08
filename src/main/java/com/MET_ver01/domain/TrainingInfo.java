@@ -19,11 +19,11 @@ public class TrainingInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "training_id")
-    private Long        trainingId;
+    private Long trainingId;
 
     @NotNull
     @Column(name = "training_name")
-    private String      trainingName;
+    private String trainingName;
 
     @NotNull
     @Column(name = "training_st_dt")
@@ -39,10 +39,10 @@ public class TrainingInfo {
     private LocalDateTime createDateTime;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JsonBackReference
     @JoinColumn(name = "creator_user_id")
-    private UserInfo    userInfo;
+    private UserInfo userInfo;
 
     @OneToMany(mappedBy = "trainingInfo")
     //@JsonManagedReference

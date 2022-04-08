@@ -20,7 +20,7 @@ public class TeamInfo {
     private Long teamId;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
    // @JsonBackReference
     @JoinColumn(name = "dep_id")
     private DepInfo depInfo;

@@ -35,7 +35,7 @@ public class DepInfo {
 
     //@JsonBackReference
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "corp_id")
     private CorpInfo corpInfo;
 

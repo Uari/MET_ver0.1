@@ -11,9 +11,11 @@
     <h1 id="h1">악성메일 모의훈련</h1>
 <form id="slick-login" action="login" method="post">
     <label>userid</label>
-    <input type="text" name="userId" class="placeholder" placeholder="아이디">
+    <input type="text" name="loginId" class="placeholder" placeholder="아이디"
+           required oninvalid="this.setCustomValidity('아이디를 입력해주세요.')" oninput="this.setCustomValidity('')">
     <label>password</label>
-    <input type="password" name="userPw" class="placeholder" placeholder="비밀번호">
+    <input type="password" name="loginPw" class="placeholder" placeholder="비밀번호"
+           required oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')" oninput="this.setCustomValidity('')">
     <input type="submit" value="Log In">
     <a class="a_teg" href="#" id="alertStart">문의하기</a>
 </form>

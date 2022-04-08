@@ -26,17 +26,17 @@ public class UserInfo {
     @Column(name = "user_addr")
     private String userAddr;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JsonBackReference
     @JoinColumn(name = "team_id")
     private TeamInfo teamInfo;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     //@JsonManagedReference
     @JoinColumn(name = "login_index")
     private LoginInfo loginInfo;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "smtp_index")
     private SmtpInfo smtpInfo;
 

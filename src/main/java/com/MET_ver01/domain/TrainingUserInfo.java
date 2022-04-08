@@ -56,13 +56,13 @@ public class TrainingUserInfo {
     private UserInfo    userInfo;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JsonBackReference
     @JoinColumn(name = "training_id")
     private TrainingInfo    trainingInfo;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JsonBackReference
     @JoinColumn(name = "scenario_id")
     private ScenarioInfo    scenarioInfo;
