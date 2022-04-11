@@ -5,8 +5,6 @@ import com.MET_ver01.domain.LoginInfo;
 import com.MET_ver01.repository.LoginRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 
 @Service
 @RequiredArgsConstructor

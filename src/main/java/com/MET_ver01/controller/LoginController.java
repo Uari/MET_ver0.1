@@ -4,20 +4,18 @@ import com.MET_ver01.DTO.LoginDTO;
 import com.MET_ver01.domain.LoginInfo;
 import com.MET_ver01.service.LoginService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.Map;
-
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class LoginController {
 
     private final LoginService loginService;
@@ -29,7 +27,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(HttpServletRequest request, @Valid LoginDTO loginDTO, Model model) throws Exception {
+    public String login(HttpServletRequest request, @Valid LoginDTO loginDTO) throws Exception {
 
         String tagetUrl = "";
         LoginInfo loginIf = loginService.loginOne(loginDTO);
