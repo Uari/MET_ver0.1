@@ -34,4 +34,6 @@ public class CorpInfo {
         //@JsonManagedReference
         @OneToMany(mappedBy = "corpInfo")
         private List<DepInfo> depInfo = new ArrayList<>();
+
+
 }

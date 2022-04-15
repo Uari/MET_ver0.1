@@ -13,6 +13,6 @@ public class LoginService{
     private final LoginRepository loginRepository;
 
     public LoginInfo loginOne(LoginDTO loginDTO) throws Exception{
-       return loginRepository.loginOne(loginDTO);
+       return loginRepository.loginOne(loginDTO.toEntity().getLoginId());
     }
 }

@@ -1,6 +1,9 @@
 package com.MET_ver01.domain;
 
+import com.MET_ver01.DTO.UserDTO;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class UserInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,4 +69,18 @@ public class UserInfo {
     @LastModifiedDate
     @Column(name = "last_update_time")
     private LocalDateTime last_update_time;
+
+    @Builder
+    public UserInfo (String userName, String userAddr){
+        this.userName = userName;
+        this.userAddr = userAddr;
+    }
+
+    public UserDTO of(){
+        return UserDTO.builder()
+                .userName(this.userName)
+                .userAddr(this.userAddr)
+                .build();
+    }
+
 }

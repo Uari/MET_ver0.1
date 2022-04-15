@@ -32,13 +32,16 @@ public class LoginController {
         String tagetUrl = "";
         LoginInfo loginIf = loginService.loginOne(loginDTO);
         if(loginIf == null){    //아이디가 존제하지 않음
+            System.out.println("Error : 1");
             tagetUrl = "redirect:/";
         } else {
             if(loginIf.getLoginPw().equals(loginDTO.getLoginPw())){ //아이디도 일치 비번도 일치
+                System.out.println("Error : 2");
                 HttpSession session = request.getSession();
                 session.setAttribute("loginId", loginDTO.getLoginId());
                 tagetUrl = "redirect:/main";
             }else{  //아이디는 있으나 비번이 일치하지 않음
+                System.out.println("Error : 3");
                 tagetUrl = "redirect:/";
             }
         }

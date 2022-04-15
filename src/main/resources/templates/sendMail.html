@@ -1,19 +1,126 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/METheader :: METheader">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <div id="page-wrapper">
-    <div th:replace="fragments/menu :: menu" />
-    <!-- 메일전송 -->
+    <div th:replace="fragments/menu :: menu"/>
+    <!-- 본문 -->
+    <div id="page-content-wrapper" >
+        <div id="bodyContent" class="container-fluid" >
 
-    <div id="page-content-wrapper">
-        <div id="bodyContent" class="container-fluid">
-            메일 전송 폼 만들 예정
+            <div class="templatemo-content-widget white-bg" style="padding-bottom: 50px;">
+
+                <div style="width: 40%; vertical-align: top;">
+                    <div class="col-lg-12 col-md-6" style="display: inline-block;">
+                        <label class="control-label">시나리오 로드</label>
+                        <button onclick="loadScenario()" value="적용"
+                                style="float: right; width: 80px; background: #39ADB4; color: white; border: none; height: 23px;">
+                            적용
+                        </button>
+                        <select id="scenarioNames" multiple="" class="templatemo-multi-select form-control"
+                                style="overflow-y: scroll;height: 200px;">
+                            <option th:each="scenario:${scenarioInfoList}" th:value="${scenario.scenarioId}"
+                                    th:text="${scenario.scenarioName}"></option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-12 col-md-6" style="display: inline-block;">
+                        <div style="padding-top: 25px;">
+                            <label class="control-label">수신인</label>
+                            <button id="sendUserModal" value="추가"
+                                    style="float: right; width: 80px; background: #39ADB4; color: white; border: none; height: 23px;"
+                                    onclick="modalClick('on')">추가
+                            </button>
+                        </div>
+                        <select id="sendUserNames" multiple="" class="templatemo-multi-select form-control"
+                                style="overflow-y: scroll;height: 200px;">
+                        </select>
+                    </div>
+                </div>
+
+                <form id="scenarioInfoForm" class="templatemo-login-form">
+                    <div th:if="${scenarioInfo} != null">
+                        <div style="width: 55%; display: inline-block;">
+                            <div style="height: 80px;">
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="sender">발신인</label>
+                                    <input th:value="${scenarioInfo.scenarioId}" type="hidden" id="scenarioId">
+                                    <input th:value="${scenarioInfo.sendMailUser}" type="text" id="sender"
+                                           class="form-control"
+                                           placeholder="sender">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="senderAddr">발신인 주소</label>
+                                    <input th:value="${scenarioInfo.sendMailAddr}" type="text" id="senderAddr"
+                                           class="form-control"
+                                           placeholder="example@example.com">
+                                </div>
+                            </div>
+                            <div style="height: 80px;">
+                                <div class="col-lg-12 col-md-6 form-group">
+                                    <label for="mailTitle">메일 제목</label>
+                                    <input th:value="${scenarioInfo.mailTitle}" type="text" id="mailTitle"
+                                           class="form-control"
+                                           placeholder="mailTitle">
+                                </div>
+                            </div>
+                            <div style="height: 240px;">
+                                <div class="col-lg-12">
+                                    <label for="mailContent">메일 내용</label>
+                                    <textarea th:value="${scenarioInfo.mailContent}" th:text="${scenarioInfo.mailContent}" id="mailContent"
+                                              class="form-control"
+                                              rows="3" style="resize: vertical;height: 200px;"></textarea>
+                                </div>
+                                <div class="col-lg-6 col-md-6 form-group"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div th:if="${scenarioInfo} == null">
+                        <div style="width: 55%; display: inline-block;">
+                            <div style="height: 80px;">
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="sender">발신인</label>
+                                    <input type="text" id="notSelectedSender" class="form-control"
+                                           placeholder="sender">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <label for="senderAddr">발신인 주소</label>
+                                    <input type="text" id="notSelectedSenderAddr" class="form-control"
+                                           placeholder="example@example.com">
+                                </div>
+                            </div>
+                            <div style="height: 80px;">
+                                <div class="col-lg-12 col-md-6 form-group">
+                                    <label for="mailTitle">메일 제목</label>
+                                    <input type="text" id="notSelectedMailTitle" class="form-control"
+                                           placeholder="mailTitle">
+                                </div>
+                            </div>
+                            <div style="height: 240px;">
+                                <div class="col-lg-12">
+                                    <label for="mailContent">메일 내용</label>
+                                    <textarea type="text" id="notSelectedMailContent" class="form-control" rows="3"
+                                              style="resize: vertical;height: 200px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <button id="sendMailBtn" class="templatemo-blue-button" onclick="doSendMail()">발송</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div th:replace="fragments/footer :: footer" />
+            <div th:replace="fragments/footer :: footer"/>
 </div>
+
+<!--<div th:replace="fragments/sendUserModal :: sendUserModal" />-->
+
 </body>
 </html>
