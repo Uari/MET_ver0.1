@@ -39,4 +39,6 @@ public class DepInfo {
     @JoinColumn(name = "corp_id")
     private CorpInfo corpInfo;
 
+
+
 }

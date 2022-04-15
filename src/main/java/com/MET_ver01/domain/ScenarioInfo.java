@@ -1,7 +1,10 @@
 package com.MET_ver01.domain;
 
+import com.MET_ver01.DTO.ScenarioDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,6 +15,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class ScenarioInfo {
 
     @Id
@@ -69,4 +73,24 @@ public class ScenarioInfo {
     //@JsonManagedReference
     private List<ScenarioInfo> scenarioInfo = new ArrayList<>();
 
+    @Builder
+    public ScenarioInfo (Long scenarioId, String scenarioName, String sendMailUser, String sendMailAddr, String mailTitle, String mailContent) {
+        this.scenarioId = scenarioId;
+        this.scenarioName = scenarioName;
+        this.sendMailUser = sendMailUser;
+        this.sendMailAddr = sendMailAddr;
+        this.mailTitle = mailTitle;
+        this.mailContent = mailContent;
+    }
+
+    public ScenarioDTO of(){
+        return ScenarioDTO.builder()
+                .scenarioId(this.scenarioId)
+                .scenarioName(this.scenarioName)
+                .sendMailUser(this.sendMailUser)
+                .sendMailAddr(this.sendMailAddr)
+                .mailTitle(this.mailTitle)
+                .mailContent(this.mailContent)
+                .build();
+    }
 }
