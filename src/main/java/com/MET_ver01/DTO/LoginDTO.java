@@ -15,6 +15,8 @@ public class LoginDTO {
     private String loginId;
     private String loginPw;
 
+
+
     public LoginInfo toEntity(){
         return LoginInfo.builder()
                 .loginId(this.loginId)

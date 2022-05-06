@@ -1,6 +1,5 @@
 package com.MET_ver01.controller;
 
-import com.MET_ver01.domain.UserInfo;
 import com.MET_ver01.service.OrganizationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
